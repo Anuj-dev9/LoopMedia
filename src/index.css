@@ -1930,10 +1930,17 @@ section {
   }
   .portfolio-overlay {
     padding: 1rem;
+    align-items: flex-start; /* Prevents top of modal from being cut off on small mobile devices if taller than viewport */
+    overflow-y: auto;
   }
   .portfolio-drawer {
     padding: 2rem 1.5rem;
-    max-height: 95vh;
+    max-height: none; /* Let it grow naturally since overlay can scroll */
+    margin: 2rem auto; /* Give some spacing */
+  }
+  .drawer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .contact-form-col {
     padding: 2rem 1.5rem;

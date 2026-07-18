@@ -26,6 +26,8 @@ function App() {
       infinite: false,
     });
 
+    window.lenis = lenis;
+
     // Intercept anchor link clicks to use Lenis scroll
     const handleAnchorClick = (e) => {
       const target = e.target.closest('a');
@@ -53,6 +55,7 @@ function App() {
     return () => {
       document.removeEventListener('click', handleAnchorClick);
       lenis.destroy();
+      window.lenis = null;
     };
   }, []);
 

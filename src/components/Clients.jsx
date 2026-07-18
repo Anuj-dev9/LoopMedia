@@ -4,11 +4,8 @@ const Clients = () => {
   const clients = [
     "BNG DESIGN STUDIO",
     "FIZOR ESPORTS",
-    "PULSE FITNESS",
-    "TECHFLOW INC.",
-    "QUANTUM LOGIC",
-    "NEXUS LABS",
-    "ZENITH DIGITAL"
+    "TASKFLOW",
+    "James E. Beecham",
   ];
 
   return (

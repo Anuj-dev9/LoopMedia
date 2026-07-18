@@ -39,22 +39,38 @@ const Globe = (props) => (
 const Team = () => {
   const [selectedMember, setSelectedMember] = useState(null);
 
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (selectedMember) {
+      document.body.style.overflow = 'hidden';
+      if (window.lenis) window.lenis.stop();
+    } else {
+      document.body.style.overflow = '';
+      if (window.lenis) window.lenis.start();
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = '';
+      if (window.lenis) window.lenis.start();
+    };
+  }, [selectedMember]);
 
   const teamMembers = [
     {
       id: 'anuj',
       name: 'Anuj Adhikary',
-      role: 'Frontend Developer / 3D Artist & Founder',
+      role: 'Frontend Developer & Digital Artist',
       qualification: 'BCA (Bachelor of Computer Applications)',
       avatarColor: 'from-cyan-500 to-blue-600',
       initials: 'AA',
       image: '/anuj.jpg',
-      bio: 'Creative developer blending interactive digital art with robust frontend architectures. Specialized in WebGL, 3D design, and building highly immersive user experiences.',
+      bio: 'Multidisciplinary creator open to everything creative. Specialized in fusing frontend development (React, JS, HTML, CSS) with 2D/3D digital art (Figma, Photoshop, 3ds Max, Maya).',
       skills: [
-        { name: 'React & Frontend', level: 96 },
-        { name: 'Three.js / WebGL', level: 90 },
-        { name: 'Creative Coding', level: 92 },
-        { name: '3D Design', level: 88 }
+        { name: 'React / JavaScript', level: 96 },
+        { name: '3ds Max / Maya', level: 94 },
+        { name: 'Figma / Photoshop', level: 92 },
+        { name: 'HTML / CSS', level: 90 }
       ],
       social: { github: 'https://github.com/Anuj-dev9', linkedin: 'https://linkedin.com/in/anujadhikary193', behance: 'https://www.behance.net/anujadhikary193', portfolio: 'https://anuj-dev9.netlify.app/' },
       projects: [
@@ -107,24 +123,24 @@ const Team = () => {
     {
       id: 'aman',
       name: 'Aman Chauhan',
-      role: 'Full Stack Developer & Co-Founder',
-      qualification: 'B.Tech in Computer Science',
+      role: 'Frontend Developer',
+      qualification: 'BCA (Bachelor of Computer Applications)',
       avatarColor: 'from-green-500 to-emerald-600',
       initials: 'AC',
       image: '/aman.jpg',
-      bio: 'Building production-grade web platforms with React.js, Node.js, and MongoDB. Runs an esports startup while delivering full-stack client solutions.',
+      bio: 'Frontend Developer open to everything creative. Specialized in crafting engaging user interfaces using React, JavaScript, CSS, and HTML, alongside design tools like Figma, Photoshop, and Illustrator.',
       skills: [
-        { name: 'React / Next.js', level: 94 },
-        { name: 'Node.js / Express', level: 92 },
-        { name: 'MongoDB Schema', level: 90 },
-        { name: 'System Architecture', level: 88 }
+        { name: 'React / JavaScript', level: 94 },
+        { name: 'HTML / CSS', level: 92 },
+        { name: 'Figma', level: 90 },
+        { name: 'Photoshop / Illustrator', level: 85 }
       ],
       social: { github: 'https://github.com/amanjc81-code', linkedin: 'https://linkedin.com/in/amanjc81', portfolio: 'https://aman-chauhan-iota.vercel.app/' },
       projects: [
         {
           name: 'Fizor Esports Platform',
           desc: 'Founded and built a competitive gaming platform managing brand strategy, tournaments, and a community of gamers.',
-          tags: ['Startup', 'React', 'Full Stack'],
+          tags: ['Startup', 'React', 'Frontend'],
           link: 'https://fizoresports.vercel.app/'
         },
         {
@@ -186,8 +202,8 @@ const Team = () => {
 
       {/* Fullscreen Portfolio Drawer/Modal */}
       {selectedMember && (
-        <div className="portfolio-overlay">
-          <div className="portfolio-drawer glass-card">
+        <div className="portfolio-overlay" data-lenis-prevent="true">
+          <div className="portfolio-drawer glass-card" data-lenis-prevent="true">
             
             {/* Close Button */}
             <button 
@@ -275,55 +291,74 @@ const Team = () => {
                 
                 {/* ----------------- CUSTOM INTERACTIVE WIDGETS ----------------- */}
 
-                {/* AMAN Chauhan (Full Stack) Widget: Database Query Visualizer */}
+                {/* AMAN Chauhan (Frontend) Widget: Developer Profile Object */}
                 {selectedMember.id === 'aman' && (
-                  <div className="widget-box glass-card">
+                  <div className="widget-box glass-card" style={{ border: '1px solid rgba(74, 222, 128, 0.3)', boxShadow: '0 0 20px rgba(74, 222, 128, 0.15)' }}>
                     <div className="widget-header">
-                      <Database size={18} className="widget-icon" />
-                      <span>MongoDB Schema Sandbox</span>
+                      <Terminal size={18} className="widget-icon" style={{ color: '#4ade80' }} />
+                      <span>developer_profile.js</span>
                     </div>
-                    <div className="design-simulator" style={{ padding: '1rem', background: 'rgba(0,0,0,0.4)', borderRadius: '12px', fontFamily: 'monospace', fontSize: '0.85rem' }}>
-                       <div style={{ color: '#c678dd', marginBottom: '0.5rem' }}>const <span style={{ color: '#e5c07b' }}>playerSchema</span> = new mongoose.Schema({'{'}</div>
-                       <div style={{ paddingLeft: '1.5rem', color: '#abb2bf' }}>
-                         username: {'{'} type: <span style={{ color: '#56b6c2' }}>String</span>, required: true {'}'},<br/>
-                         rank: {'{'} type: <span style={{ color: '#56b6c2' }}>Number</span>, default: 0 {'}'},<br/>
-                         team: {'{'} type: mongoose.Schema.Types.<span style={{ color: '#56b6c2' }}>ObjectId</span>, ref: 'Team' {'}'},<br/>
-                         isOnline: {'{'} type: <span style={{ color: '#56b6c2' }}>Boolean</span>, default: false {'}'}
+                    <div className="design-simulator" style={{ padding: '1.25rem', background: '#1e1e24', borderRadius: '12px', fontFamily: 'monospace', fontSize: '0.95rem', lineHeight: '1.6', color: '#abb2bf', border: '1px solid rgba(255,255,255,0.05)' }}>
+                       <div style={{ color: '#c678dd' }}>const <span style={{ color: '#e5c07b' }}>me</span> = {'{'}</div>
+                       
+                       <div style={{ paddingLeft: '1.5rem' }}>
+                         <span style={{ color: '#e06c75' }}>name</span>: <span style={{ color: '#98c379' }}>"Aman Chauhan"</span>,<br/>
+                         
+                         <span style={{ color: '#e06c75' }}>role</span>: [<br/>
+                         <div style={{ paddingLeft: '1.5rem' }}>
+                           <span style={{ color: '#98c379' }}>"Frontend Developer"</span>
+                         </div>
+                         ],<br/>
+                         
+                         <span style={{ color: '#e06c75' }}>tools</span>: {'{'}<br/>
+                         <div style={{ paddingLeft: '1.5rem' }}>
+                           <span style={{ color: '#e06c75' }}>code</span>: &nbsp;&nbsp;[<span style={{ color: '#98c379' }}>"React"</span>, <span style={{ color: '#98c379' }}>"JavaScript"</span>, <span style={{ color: '#98c379' }}>"CSS"</span>, <span style={{ color: '#98c379' }}>"HTML"</span>],<br/>
+                           <span style={{ color: '#e06c75' }}>design</span>: [<span style={{ color: '#98c379' }}>"Figma"</span>, <span style={{ color: '#98c379' }}>"Photoshop"</span>, <span style={{ color: '#98c379' }}>"Illustrator"</span>],
+                         </div>
+                         {'}'},<br/>
+                         
+                         <span style={{ color: '#e06c75' }}>openTo</span>: <span style={{ color: '#98c379' }}>"Everything creative"</span>,
                        </div>
-                       <div style={{ color: '#c678dd', marginTop: '0.5rem' }}>{'}'});</div>
-                       <div style={{ marginTop: '1rem', padding: '0.5rem', background: 'rgba(97, 175, 239, 0.1)', color: '#61afef', borderRadius: '4px', textAlign: 'center' }}>
-                         [ Connected to Cluster0 • 14ms ping ]
-                       </div>
+                       
+                       <div style={{ color: '#c678dd' }}>{'}'};</div>
                     </div>
                   </div>
                 )}
 
-                {/* ANUJ Adhikary (Frontend/3D) Widget: WebGL Code Renderer */}
+                {/* ANUJ Adhikary (Frontend/3D) Widget: Developer Profile Object */}
                 {selectedMember.id === 'anuj' && (
-                  <div className="widget-box glass-card">
+                  <div className="widget-box glass-card" style={{ border: '1px solid rgba(56, 189, 248, 0.3)', boxShadow: '0 0 20px rgba(56, 189, 248, 0.15)' }}>
                     <div className="widget-header">
-                      <Cpu size={18} className="widget-icon" />
-                      <span>WebGL Shader Sandbox</span>
+                      <Cpu size={18} className="widget-icon" style={{ color: '#38bdf8' }} />
+                      <span>developer_profile.js</span>
                     </div>
-                    <div className="design-simulator" style={{ padding: '1rem', background: 'rgba(0,0,0,0.5)', borderRadius: '12px', display: 'flex', flexDirection: 'column', gap: '0.75rem', position: 'relative', overflow: 'hidden' }}>
-                       {/* Animated background to simulate WebGL */}
-                       <div className="glow-bg glow-primary animate-pulse" style={{ width: '150px', height: '150px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.5, borderRadius: '50%' }}></div>
-                       <div style={{ fontFamily: 'monospace', color: '#64ffda', fontSize: '0.8rem', zIndex: 1 }}>
-                         <div style={{ color: '#c678dd' }}>void</div> <div style={{ color: '#61afef', display: 'inline' }}>main</div>() {'{'}
+                    <div className="design-simulator" style={{ padding: '1.25rem', background: '#1e1e24', borderRadius: '12px', fontFamily: 'monospace', fontSize: '0.95rem', lineHeight: '1.6', color: '#abb2bf', border: '1px solid rgba(255,255,255,0.05)' }}>
+                       <div style={{ color: '#c678dd' }}>const <span style={{ color: '#e5c07b' }}>me</span> = {'{'}</div>
+                       
+                       <div style={{ paddingLeft: '1.5rem' }}>
+                         <span style={{ color: '#e06c75' }}>name</span>: <span style={{ color: '#98c379' }}>"Anuj Adhikary"</span>,<br/>
+                         
+                         <span style={{ color: '#e06c75' }}>role</span>: [<br/>
+                         <div style={{ paddingLeft: '1.5rem' }}>
+                           <span style={{ color: '#98c379' }}>"Frontend Developer"</span>,<br/>
+                           <span style={{ color: '#98c379' }}>"2D Graphic Designer"</span>,<br/>
+                           <span style={{ color: '#98c379' }}>"Digital Artist"</span>,<br/>
+                           <span style={{ color: '#98c379' }}>"3D Modeler"</span>
+                         </div>
+                         ],<br/>
+                         
+                         <span style={{ color: '#e06c75' }}>tools</span>: {'{'}<br/>
+                         <div style={{ paddingLeft: '1.5rem' }}>
+                           <span style={{ color: '#e06c75' }}>code</span>: &nbsp;&nbsp;[<span style={{ color: '#98c379' }}>"React"</span>, <span style={{ color: '#98c379' }}>"JavaScript"</span>, <span style={{ color: '#98c379' }}>"CSS"</span>, <span style={{ color: '#98c379' }}>"HTML"</span>],<br/>
+                           <span style={{ color: '#e06c75' }}>design</span>: [<span style={{ color: '#98c379' }}>"Figma"</span>, <span style={{ color: '#98c379' }}>"Photoshop"</span>, <span style={{ color: '#98c379' }}>"Illustrator"</span>],<br/>
+                           <span style={{ color: '#e06c75' }}>art3d</span>: &nbsp;[<span style={{ color: '#98c379' }}>"3ds Max"</span>, <span style={{ color: '#98c379' }}>"Maya"</span>],
+                         </div>
+                         {'}'},<br/>
+                         
+                         <span style={{ color: '#e06c75' }}>openTo</span>: <span style={{ color: '#98c379' }}>"Everything creative"</span>,
                        </div>
-                       <div style={{ fontFamily: 'monospace', color: '#abb2bf', fontSize: '0.8rem', paddingLeft: '1rem', zIndex: 1 }}>
-                         <div style={{ color: '#e5c07b', display: 'inline' }}>vec2</div> st = gl_FragCoord.xy / u_resolution.xy;
-                       </div>
-                       <div style={{ fontFamily: 'monospace', color: '#abb2bf', fontSize: '0.8rem', paddingLeft: '1rem', zIndex: 1 }}>
-                         <div style={{ color: '#e5c07b', display: 'inline' }}>vec3</div> color = vec3(st.x, st.y, abs(sin(u_time)));
-                       </div>
-                       <div style={{ fontFamily: 'monospace', color: '#abb2bf', fontSize: '0.8rem', paddingLeft: '1rem', zIndex: 1 }}>
-                         gl_FragColor = <div style={{ color: '#e5c07b', display: 'inline' }}>vec4</div>(color, 1.0);
-                       </div>
-                       <div style={{ fontFamily: 'monospace', color: '#64ffda', fontSize: '0.8rem', zIndex: 1 }}>{'}'}</div>
-                       <div style={{ marginTop: '1rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', zIndex: 1, textAlign: 'center' }}>
-                          [ Rendering active • 60 FPS ]
-                       </div>
+                       
+                       <div style={{ color: '#c678dd' }}>{'}'};</div>
                     </div>
                   </div>
                 )}
