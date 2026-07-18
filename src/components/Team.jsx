@@ -202,7 +202,7 @@ const Team = () => {
 
       {/* Fullscreen Portfolio Drawer/Modal */}
       {selectedMember && (
-        <div className="portfolio-overlay" data-lenis-prevent="true">
+        <div className="portfolio-overlay">
           <div className="portfolio-drawer glass-card" data-lenis-prevent="true">
             
             {/* Close Button */}
