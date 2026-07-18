@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Clients from './components/Clients';
 import Services from './components/Services';
 import Team from './components/Team';
 import Feedback from './components/Feedback';
@@ -59,6 +60,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <Clients />
         <Services />
         <Team />
         <Feedback />
