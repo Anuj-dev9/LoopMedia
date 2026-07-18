@@ -522,6 +522,82 @@ section {
   text-transform: uppercase;
 }
 
+/* Partners Section */
+.partners-section {
+  position: relative;
+  padding: 6rem 0;
+  z-index: 5;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.partner-card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  border: var(--brutalist-border);
+  box-shadow: var(--brutalist-shadow);
+  transition: var(--transition-fast);
+  min-height: 200px;
+}
+
+.partner-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--brutalist-shadow-hover);
+  border-color: var(--primary);
+}
+
+.partner-logo-wrapper {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.partner-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: var(--transition-fast);
+}
+
+.partner-card:hover .partner-logo {
+  transform: scale(1.05);
+}
+
+.partner-placeholder {
+  width: 60px;
+  height: 60px;
+  background: var(--bg-primary);
+  border: var(--brutalist-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.partner-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 /* Clients Marquee Section */
 .clients-section {
   padding: 3rem 0;
@@ -559,6 +635,19 @@ section {
 .marquee-text.outlined {
   color: transparent;
   -webkit-text-stroke: 1.5px #111111;
+}
+
+.marquee-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  padding: 0 1.5rem;
+  filter: grayscale(100%) contrast(120%);
+  transition: var(--transition-fast);
+}
+
+.marquee-logo:hover {
+  filter: grayscale(0%) contrast(100%);
 }
 
 .marquee-separator {

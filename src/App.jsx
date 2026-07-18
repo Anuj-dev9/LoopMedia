@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Clients from './components/Clients';
 import Services from './components/Services';
+import Partners from './components/Partners';
 import Team from './components/Team';
 import Feedback from './components/Feedback';
 import Contact from './components/Contact';
@@ -62,6 +63,7 @@ function App() {
         <Hero />
         <Clients />
         <Services />
+        <Partners />
         <Team />
         <Feedback />
         <Contact />

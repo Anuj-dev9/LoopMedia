@@ -15,7 +15,7 @@ const Clients = () => {
     <section className="clients-section">
       <div className="marquee-container">
         <div className="marquee-content">
-          {[...clients, ...clients, ...clients].map((client, index) => (
+          {[...clients, ...clients, ...clients, ...clients].map((client, index) => (
             <React.Fragment key={index}>
               <span className={index % 2 === 0 ? "marquee-text" : "marquee-text outlined"}>
                 {client}
