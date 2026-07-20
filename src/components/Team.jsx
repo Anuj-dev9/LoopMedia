@@ -364,36 +364,19 @@ const Team = () => {
                 )}
 
 
-                {/* CHINMAY Das (UI Designer) Widget: Design Simulator */}
+                {/* CHINMAY Das (UI Designer) Widget: Visual Portfolio Image */}
                 {selectedMember.id === 'chinmay' && (
-                  <div className="widget-box glass-card">
+                  <div className="widget-box glass-card" style={{ border: '1px solid rgba(236, 72, 153, 0.3)', boxShadow: '0 0 20px rgba(236, 72, 153, 0.15)' }}>
                     <div className="widget-header">
-                      <Layers size={18} className="widget-icon" />
-                      <span>Figma Layout Prototyper</span>
+                      <Layers size={18} className="widget-icon" style={{ color: '#ec4899' }} />
+                      <span>Visual Portfolio</span>
                     </div>
-
-                    <div className="design-simulator" style={{ padding: '1.25rem', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', border: '1px dashed rgba(255,255,255,0.1)' }}>
-                      {/* Mockup Toolbar */}
-                      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', alignItems: 'center' }}>
-                         <div style={{ width: '12px', height: '12px', background: '#ff5f56', borderRadius: '50%' }}></div>
-                         <div style={{ width: '12px', height: '12px', background: '#ffbd2e', borderRadius: '50%' }}></div>
-                         <div style={{ width: '12px', height: '12px', background: '#27c93f', borderRadius: '50%' }}></div>
-                         <div style={{ flex: 1 }}></div>
-                         <div style={{ background: 'rgba(255,255,255,0.1)', fontSize: '0.7rem', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>100%</div>
-                      </div>
-                      
-                      {/* Wireframe Mockup */}
-                      <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
-                         <div style={{ flex: 1, height: '40px', background: 'rgba(255,255,255,0.08)', borderRadius: '6px' }}></div>
-                         <div style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.08)', borderRadius: '50%' }}></div>
-                      </div>
-                      <div style={{ display: 'flex', gap: '1rem' }}>
-                         <div style={{ width: '30%', height: '120px', background: 'rgba(255,255,255,0.08)', borderRadius: '6px' }}></div>
-                         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                           <div style={{ height: '52px', background: 'rgba(255,255,255,0.08)', borderRadius: '6px' }}></div>
-                           <div style={{ height: '52px', background: 'rgba(255,255,255,0.08)', borderRadius: '6px' }}></div>
-                         </div>
-                      </div>
+                    <div style={{ padding: '0.5rem', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', border: '1px dashed rgba(255,255,255,0.1)' }}>
+                      <img 
+                        src="/chinmay1.jpeg" 
+                        alt="Chinmay Design Portfolio" 
+                        style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '8px' }} 
+                      />
                     </div>
                   </div>
                 )}
