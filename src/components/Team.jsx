@@ -112,10 +112,10 @@ const Team = () => {
           link: 'https://www.behance.net/gallery/251778883/BNG-Design-Studio-Branding-Work'
         },
         {
-          name: 'BNG Design Studio (Live Site)',
-          desc: 'The official live website for BNG Design Studio, showcasing the implemented branding and UI design systems in a production environment.',
-          tags: ['Web Design', 'UI/UX', 'Production'],
-          link: 'https://www.bngdesignstudio.com/'
+          name: 'The Monk - Fantasy Illustration',
+          desc: 'A digital fantasy illustration project showcasing character design, visual storytelling, and conceptual art.',
+          tags: ['Illustration', 'Character Design', 'Digital Art'],
+          link: 'https://www.behance.net/gallery/252281885/The-Monk-Fantasy-Illustration'
         }
       ]
     },
