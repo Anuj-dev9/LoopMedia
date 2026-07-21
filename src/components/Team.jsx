@@ -366,18 +366,16 @@ const Team = () => {
 
                 {/* CHINMAY Das (UI Designer) Widget: Visual Portfolio Image */}
                 {selectedMember.id === 'chinmay' && (
-                  <div className="widget-box glass-card" style={{ border: '1px solid rgba(236, 72, 153, 0.3)', boxShadow: '0 0 20px rgba(236, 72, 153, 0.15)' }}>
-                    <div className="widget-header">
+                  <div className="widget-box glass-card" style={{ border: '1px solid rgba(236, 72, 153, 0.3)', boxShadow: '0 0 20px rgba(236, 72, 153, 0.15)', padding: 0, overflow: 'hidden' }}>
+                    <div className="widget-header" style={{ margin: '1.75rem 1.75rem 1.5rem 1.75rem' }}>
                       <Layers size={18} className="widget-icon" style={{ color: '#ec4899' }} />
                       <span>Visual Portfolio</span>
                     </div>
-                    <div style={{ padding: '0.5rem', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', border: '1px dashed rgba(255,255,255,0.1)' }}>
-                      <img 
-                        src="/chinmay1.jpeg" 
-                        alt="Chinmay Design Portfolio" 
-                        style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '8px' }} 
-                      />
-                    </div>
+                    <img 
+                      src="/chinmay1.jpeg" 
+                      alt="Chinmay Design Portfolio" 
+                      style={{ width: '100%', height: 'auto', display: 'block' }} 
+                    />
                   </div>
                 )}
 

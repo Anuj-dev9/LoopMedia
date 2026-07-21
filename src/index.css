@@ -859,7 +859,7 @@ section {
 .portfolio-drawer {
   position: relative;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1250px;
   max-height: 90vh;
   overflow-y: auto;
   border-radius: 4px;
