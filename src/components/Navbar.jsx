@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Code2 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,12 +31,11 @@ const Navbar = () => {
       <div className="navbar-container container">
         {/* Logo */}
         <a href="#home" className="navbar-logo">
-          <div className="logo-icon">
-            <Code2 size={22} />
-          </div>
-          <span className="logo-text">
-            LOOP<span className="logo-highlight">MEDIA</span>
-          </span>
+          <img 
+            src="/Vector%20loop%20black.png" 
+            alt="LoopMedia Logo" 
+            className="navbar-logo-img" 
+          />
         </a>
 
         {/* Desktop Navigation */}

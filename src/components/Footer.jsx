@@ -1,5 +1,4 @@
 import React from 'react';
-import { Code2 } from 'lucide-react';
 
 const Github = (props) => (
   <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -31,12 +30,11 @@ const Footer = () => {
         {/* Left Side: Brand and short description */}
         <div className="footer-brand">
           <a href="#home" className="navbar-logo">
-            <div className="logo-icon">
-              <Code2 size={20} />
-            </div>
-            <span className="logo-text">
-              LOOP<span className="logo-highlight">MEDIA</span>
-            </span>
+            <img 
+              src="/Vector%20loop%20black.png" 
+              alt="LoopMedia Logo" 
+              className="navbar-logo-img" 
+            />
           </a>
           <p className="footer-desc">
             An elite engineering squad building highly secure, scalable, and beautifully interactive digital products.
