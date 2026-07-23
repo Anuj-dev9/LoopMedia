@@ -60,7 +60,7 @@ const Team = () => {
     {
       id: 'anuj',
       name: 'Anuj Adhikary',
-      role: 'Frontend Developer & Digital Artist',
+      role: 'Frontend Developer / Digital Artist & Founder',
       qualification: 'BCA (Bachelor of Computer Applications)',
       avatarColor: 'from-cyan-500 to-blue-600',
       initials: 'AA',
@@ -123,7 +123,7 @@ const Team = () => {
     {
       id: 'aman',
       name: 'Aman Chauhan',
-      role: 'Frontend Developer',
+      role: 'Backend Developer & Co-Founder',
       qualification: 'BCA (Bachelor of Computer Applications)',
       avatarColor: 'from-green-500 to-emerald-600',
       initials: 'AC',
